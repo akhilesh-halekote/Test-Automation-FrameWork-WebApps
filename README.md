@@ -16,13 +16,13 @@
 
 1. **Clone the Repository**
    ```bash
-   git clone 
-   cd 
+   git clone git@github.com:akhilesh-halekote/Test-Automation-FrameWork-WebApps.git
+   cd Test-Automation-FrameWork-WebApps
    ```
 
 2. **Open in IntelliJ IDEA**
     - Launch IntelliJ IDEA
-    - Open the `` folder
+    - Open the `Test-Automation-FrameWork-WebApps` folder
     - Wait for project build to complete
 
 
@@ -35,7 +35,3 @@
 #### 🧩 Code Quality
 - Keep methods concise and task-specific
 - Provide meaningful names to methods, classes & variables
-
-### 🌿 Git Workflow
-
-### 📞 Contact
