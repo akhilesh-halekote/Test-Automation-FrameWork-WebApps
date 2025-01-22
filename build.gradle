@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.qa'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Selenium Java: Automates browser interactions for testing.
+    implementation("org.seleniumhq.selenium:selenium-java:4.27.0")
+
+    // TestNG: Provides a testing framework for Java.
+    implementation("org.testng:testng:7.10.2")
+}
+
+test {
+    useJUnitPlatform()
+}
