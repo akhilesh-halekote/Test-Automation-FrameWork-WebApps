@@ -8,12 +8,15 @@ import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.safari.SafariOptions;
 
 public class WebDriverFactory {
+    //This is to avoid object creation
+    private WebDriverFactory(){}
+
     private static WebDriver webDriver;
 
     /**Getter method to return driver
      * @return webDriver
      */
-    public static WebDriver getDriver(){
+    public static WebDriver getWebDriver(){
         return webDriver;
     }
 
@@ -22,7 +25,7 @@ public class WebDriverFactory {
      * @param driver : Type of browser
      */
     public static void setWebDriver(String driver){
-        if(getDriver()!=null){
+        if(getWebDriver()!=null){
             return;
         }
 
@@ -41,7 +44,7 @@ public class WebDriverFactory {
     }
 
     public static void quitDriver(){
-        if(getDriver()!= null){
+        if(getWebDriver()!= null){
             webDriver.quit();
         }
     }
