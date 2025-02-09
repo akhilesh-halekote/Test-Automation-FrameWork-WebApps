@@ -2,9 +2,18 @@ package org.qa.helpers;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.qa.driverfactory.WebDriverFactory;
+
+import java.time.Duration;
 
 
 public class SeleniumWrapper {
+
+    private static final Duration DEFAULT_TIMEOUT = Duration.ofSeconds(20);
+    private static final Duration POLLING_INTERVAL = Duration.ofMillis(500);
+
 
     public static void clickOnElement(WebElement element) {
         element.click();
@@ -30,6 +39,17 @@ public class SeleniumWrapper {
             System.out.println("[WaitManager] Timeout while waiting for element visibility.");
             throw e;
         }
+    }
+
+    private static Wait<WebDriver> getFluentWait() {
+        return new FluentWait<>(WebDriverFactory.getWebDriver())
+                .withTimeout(DEFAULT_TIMEOUT)
+                .pollingEvery(POLLING_INTERVAL)
+                .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
+    }
+
+    private static JavascriptExecutor getJavascriptExecutor() {
+        return (JavascriptExecutor) WebDriverFactory.getWebDriver();
     }
 
     public static String getInnerText(WebElement element) {
