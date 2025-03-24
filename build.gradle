@@ -10,13 +10,33 @@ repositories {
 }
 
 dependencies {
+
+    // Lombok: Provides boilerplate code generation (e.g., getters, setters).
+    compileOnly("org.projectlombok:lombok:1.18.30")
+    annotationProcessor("org.projectlombok:lombok:1.18.30")
+    testCompileOnly("org.projectlombok:lombok:1.18.30")
+    testAnnotationProcessor("org.projectlombok:lombok:1.18.30")
+
+
     // Selenium Java: Automates browser interactions for testing.
     implementation("org.seleniumhq.selenium:selenium-java:4.27.0")
 
     // TestNG: Provides a testing framework for Java.
     implementation("org.testng:testng:7.10.2")
+
+    // SLF4J No-Op: Disables logging by providing a no-operation logger.
+    implementation("org.slf4j:slf4j-nop:2.1.0-alpha1")
+
+    // OkHttp: Provides an HTTP client for making REST calls.
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+
+    // Jackson Databind: Serializes and deserializes JSON to/from Java objects.
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.18.1")
+
 }
 
 test {
-    useJUnitPlatform()
+    useTestNG() {
+        //suites 'src/test/resources/regression_suite.xml'
+    }
 }
